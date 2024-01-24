@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    Options -Multiviews
+    RewriteEngine On
+    RewriteBase /public
+    # als je de url van een bestaande naam in de map kan je ernaar toeleiden
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # get array van url
+    RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
